@@ -1,0 +1,11 @@
+.img-square{
+  margin-right: 7rem;
+}
+
+thead{
+  background-color: #00B0F0;
+  color: #fff
+}
+#grand-total{
+  color: red;
+ }
