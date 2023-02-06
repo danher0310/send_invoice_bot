@@ -4,88 +4,168 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
   <link rel="stylesheet" href="./assets/css/index.css">
   <title>Document</title>
 </head>
-<body>
-  <div class="container ">
-    <div class="row">
-      <div class="col mt-5 pt-5">
-        <h1 class="mb-5"><strong>INVOICE</strong></h1>
-        <p class="text-align-right">8808 63rd Ave <br> College Park, MD 20740</p>
-        
-      </div>
-      <div class="col mt-5 pt-4 mb-2 img-square" align="right">
-        <img class="mb-2"src="./assets/img/logo.png" alt="logo" >
-       
-        <p class="my-0">Invoice Nº {{invoiceN}} <br>  </p>
-        <p class="my-0">Date: {{dates}}<br>  </p>
-       
-       </div>
 
-      </div>
-      <div class="row mt-4">
-        <div class="col">
-          <p><strong>TO:</strong> <br> 
+<body>
+  <style>
+    body{
+      padding-left: 100px;
+    }
+
+    .container-header{
+      display: block;
+    }
+    
+    .invoice-title{
+      margin-top: 70px;
+      width: 50%;
+      
+    }
+    
+  
+  
+    #logo{
+      padding: 0 0 5px 0;
+      margin: 0;
+      display: inline-block;
+      height: 96px;
+      width: 195px;
+      background-repeat: no-repeat!important;
+      text-indent: -9999px;
+      background-size: contain!important;
+    }
+  .header{
+    width: 100%;
+    padding-top: 60px;
+  }
+  .subheader{
+    margin-top: 80px;
+    margin-bottom: 5rem ;
+  }
+  .row1{
+    padding: 0 10rem 0 0;
+
+  }
+  .row1-sub-header{
+    padding: 0 20rem 0 0;
+  }
+  .invoice-body{
+    width: 710px;
+    
+  }
+  .invoice-body th,
+  .invoice-body td{
+    padding: 10px 20px;
+  }
+
+  .text-end{
+    text-align: end;
+  }
+  </style>
+
+
+  <table class="header" >
+    <tbody>
+      <tr>
+        <td colspan="10" class="row1">
+          <h1 class=""><h1><strong>INVOICE</strong></h1>
+        </td>
+        
+        <td >
+          <a href="http://cathyscleaning.com/" id="logo" style="background: url('http://cathyscleaning.com/wp-content/uploads/2017/11/logo.png');" align="rigth">Cathy's Cleaning Service™</a>
+          <!-- <img src='http://cathyscleaning.com/wp-content/uploads/2017/11/logo.png' alt=""> -->
+          
+         
+        </td>      
+      </tr>      
+    
+      <tr>
+        <td colspan="10" class="row1">8808 63rd Ave <br> College Park, MD 20740</td>
+        <td rowspan="5">Invoice Nº {{invoiceN}} <br>  Date: {{dates}}</td>
+      </tr>
+
+
+
+      
+
+    </tbody>
+
+  </table>
+
+  <table class="subheader" >
+    <tbody>
+      <tr>
+        <td colspan="50" class="row1-sub-header">
+          <p class=""><p><strong>TO:</strong> <br>
             8808 63rd Ave. <br>
             College Park, MD 20740<br>
-            Tel. 410.757.2155
-  
+            Tel. 410.757.2155  
           </p>
-        </div>
-        <div class="col  img-square mt-5" align="right">
-          <p> Account Nº 10</p>
-
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col">
-          <table class="table ">
-            <thead>
-              <tr>
-                <th scope="col">Desciptiom</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Taxes</th>
-                <th scope="col">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td scope="row">Consulting services from {{firstDay}} to {{lastDay}}</td>
-                <td>$23,897.50</td>
-                <td>0</td>
-                <td>$23,897.50</td>
-              </tr>
-             
-              <tr>                
-                <td colspan="3" class="text-end"><strong>SUB-TOTAL</strong></td>
-                <td><strong> $23,897.50 </strong></td>
-              </tr>
-              <tr>                
-                <td colspan="3" class="text-end"><strong>TAXES</strong></td>
-                <td></td>
-              </tr>
-              <tr>                
-                <td colspan="3" class="text-end"><strong>PAYMENT APPLIED</strong></td>
-                <td></td>
-              </tr>
-              <tr>                
-                <td colspan="3" class="text-end"><strong>GRAND TOTAL</strong></td>
-                <td> <strong id="grand-total"> $23,897.50 </strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p>Payment due {{lastDay}}</p>
-      </div>
-
-    </div>
-
-  </div>
+        </td>               
+       
+        <td>
+          <p> Account Nº 10</p>           
+         
+        </td>      
+      </tr>      
+    
+      
+      
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>  
+      
+
+    </tbody>
+
+  </table>
+  
+   
+  
+  <table class="table invoice-body">
+    <thead>
+      <tr>
+        <th scope="col">Desciptiom</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Taxes</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">Consulting services from {{firstDay}} to {{lastDay}}</td>
+        <td>$23,897.50</td>
+        <td>0</td>
+        <td>$23,897.50</td>
+      </tr>
+      
+      <tr>                
+        <td colspan="3" class="text-end"><strong>SUB-TOTAL</strong></td>
+        <td><strong> $23,897.50 </strong></td>
+      </tr>
+      <tr>                
+        <td colspan="3" class="text-end"><strong>TAXES</strong></td>
+        <td></td>
+      </tr>
+      <tr>                
+        <td colspan="3" class="text-end"><strong>PAYMENT APPLIED</strong></td>
+        <td></td>
+      </tr>
+      <tr>                
+        <td colspan="3" class="text-end"><strong>GRAND TOTAL</strong></td>
+        <td> <strong id="grand-total"> $23,897.50 </strong></td>
+      </tr>
+    </tbody>
+  </table>
+      
+      <p>Payment due {{lastDay}}</p>
+   
+
+    
+
+
+
 </body>
 </html>
