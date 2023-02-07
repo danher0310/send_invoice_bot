@@ -64,6 +64,10 @@
   .text-end{
     text-align: end;
   }
+  .img-space{
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
   </style>
 
 
@@ -84,7 +88,7 @@
     
       <tr>
         <td colspan="10" class="row1">8808 63rd Ave <br> College Park, MD 20740</td>
-        <td rowspan="5">Invoice Nº {{invoiceN}} <br>  Date: {{dates}}</td>
+        <td rowspan="5" class="img-space">Invoice Nº {{invoiceN}} <br>  Date: {{dates}}</td>
       </tr>
 
 
@@ -127,7 +131,7 @@
   <table class="table invoice-body">
     <thead>
       <tr>
-        <th scope="col">Desciptiom</th>
+        <th scope="col">Description</th>
         <th scope="col">Amount</th>
         <th scope="col">Taxes</th>
         <th scope="col">Total</th>
@@ -160,7 +164,7 @@
     </tbody>
   </table>
       
-      <p>Payment due {{lastDay}}</p>
+      <p>Payment due: {{lastDay}}</p>
    
 
     
