@@ -1,6 +1,6 @@
 ## ******BOT TO SEND INVOICE A ESPECIFIC CLIENT******
 
- ![header](https://raw.githubusercontent.com/danher0310/check_vm_bot/main/template/assets/img/pythonbot.jpg) 
+ ![header](https://raw.githubusercontent.com/danher0310/send_invoice_bot/blob/main/template/assets/img/pythonbot.jpg) 
 
 **DESCRIPTION:**
 
