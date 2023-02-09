@@ -57,8 +57,9 @@ def main():
   logging.basicConfig(format= '%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
   application.add_handler(CommandHandler('start', start))
   application.add_handler(CommandHandler('chat_id', chatId))
-  application.add_handler(CommandHandler('send_invoice', send_invoice))
-  application.job_queue.run_monthly(send_invoice, time(hour=6, minute=50, second=0, tzinfo=pytz.timezone('US/Eastern')), 10)
+  #application.add_handler(CommandHandler('send_invoice', send_invoice))
+  application.job_queue.run_monthly(send_invoice, time(hour=7, minute=10, second=0, tzinfo=pytz.timezone('US/Eastern')), 10)
+  application.job_queue.run_monthly(send_invoice, time(hour=7, minute=10, second=0, tzinfo=pytz.timezone('US/Eastern')), 25)
   print("-----Bot Started-----")
   application.run_polling()
     

@@ -77,6 +77,7 @@ def create_invoice():
   context = {
   
     'dates':dates,
+    'to':os.getenv('to'),
     'invoiceN': invoiceN,
     'firstDay': firstDay,
     'lastDay': lastDay
@@ -93,9 +94,9 @@ def create_invoice():
       if insert_invoice_number(int(invoiceN)):
         return path_saving
       else:
-        return "We have a error with the invoice"
+        return "Sorry, but the invoice has some error, please contact to administrator"
   else:
-    return "I created the invoice today"
+    return "Sorry, but this invoice was already processed today. Try again tomorrow."
     
     
   
