@@ -35,9 +35,9 @@ async def chatId(update,context):
     chatId = update.message.chat.id
     await update.message.reply_text(chatId)
     
-async def send_invoice(update,context):
+async def send_ccs_invoice(context):
   chatId = os.getenv('chat_id')
-  document = utils.create_invoice()
+  document = utils.ccs_invoice()
   if os.path.isfile(document):
     await context.bot.send_document(
       chat_id = chatId,
@@ -49,7 +49,21 @@ async def send_invoice(update,context):
       chat_id = chatId,
       text = document
     )
-    
+async def send_cc_invoice(context):   
+  hatId = os.getenv('chat_id')
+  document = utils.ccs_invoice()
+  if os.path.isfile(document):
+    await context.bot.send_document(
+      chat_id = chatId,
+      document = document,
+      caption = f"For Approval @greg_mudd"
+    )
+  else:
+    await context.bot.send_message(
+      chat_id = chatId,
+      text = document
+    )
+  
 
 def main():
   token = os.getenv('tlgtoken')
@@ -58,8 +72,9 @@ def main():
   application.add_handler(CommandHandler('start', start))
   application.add_handler(CommandHandler('chat_id', chatId))
   #application.add_handler(CommandHandler('send_invoice', send_invoice))
-  application.job_queue.run_monthly(send_invoice, time(hour=7, minute=10, second=0, tzinfo=pytz.timezone('US/Eastern')), 10)
-  application.job_queue.run_monthly(send_invoice, time(hour=7, minute=10, second=0, tzinfo=pytz.timezone('US/Eastern')), 25)
+  application.job_queue.run_monthly(send_ccs_invoice, time(hour=7, minute=25, second=0, tzinfo=pytz.timezone('US/Eastern')), 10)
+  application.job_queue.run_monthly(send_ccs_invoice, time(hour=7, minute=10, second=0, tzinfo=pytz.timezone('US/Eastern')), 25)
+  application.job_queue.run_monthly(send_cc_invoice, time(hour=7, minute=10, second=0, tzinfo=pytz.timezone('US/Eastern')), 25)
   print("-----Bot Started-----")
   application.run_polling()
     

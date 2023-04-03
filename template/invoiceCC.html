@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <title>Document</title>
+  <script language="javascript" type="text/javascript">
+    display = {{display}};
+    document.getElementsByClassName('retro').style.display= display
+
+
+  </script>
+</head>
+
+<body>
+  <style>
+    body{
+      padding-left: 100px;
+    }
+
+    .container-header{
+      display: block;
+    }
+    
+    .invoice-title{
+      margin-top: 70px;
+      width: 50%;
+      
+    }
+    
+  
+  
+    #logo{
+      padding: 0 0 5px 0;
+      margin: 0;
+      display: inline-block;
+      height: 96px;
+      width: 195px;
+      background-repeat: no-repeat!important;
+      text-indent: -9999px;
+      background-size: contain!important;
+    }
+  .header{
+    width: 100%;
+    padding-top: 60px;
+  }
+  .subheader{
+    margin-top: 80px;
+    margin-bottom: 5rem ;
+  }
+  .row1{
+    padding: 0 10rem 0 0;
+
+  }
+  .row1-sub-header{
+    padding: 0 20rem 0 0;
+  }
+  .invoice-body{
+    width: 710px;
+    
+  }
+  .invoice-body th,
+  .invoice-body td{
+    padding: 10px 20px;
+  }
+
+  .text-end{
+    text-align: end;
+  }
+  .img-space{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-left: 0.7rem;
+
+  }
+  .table thead{
+    background-color: #00B0F0;
+    color: #fff
+  }
+
+  
+  
+  
+  </style>
+
+
+  <table class="header" >
+    <tbody>
+      <tr>
+        <td colspan="10" class="row1">
+          <h1 class=""><h1><strong>INVOICE</strong></h1>
+        </td>
+        
+        <td >
+          <h3>Maria Anneth Herrera</h3>
+          <!-- <img src='http://cathyscleaning.com/wp-content/uploads/2017/11/logo.png' alt=""> -->
+          
+         
+        </td>      
+      </tr>      
+    
+      <tr>
+        
+        <td colspan="10" class="row1">Invoice Nº {{invoiceN}} <br>  Date: {{dates}}</td>
+        <td rowspan="5" class="img-space">Calle Sánchez, <strong>#122</strong>
+          <br> Zona Colonial
+          <br> Santo Domingo</td>
+      </tr>
+
+
+
+      
+
+    </tbody>
+
+  </table>
+
+  <table class="subheader" >
+    <tbody>
+      <tr>
+        <td colspan="50" class="row1-sub-header">
+          <p class=""><p><strong>TO: </strong> <br>
+            {{to}} <br>
+            Calle Sanchez, #122<br>
+            Zona Colonial - Santo Domingo<br>
+            
+          </p>
+        </td>               
+       
+        <td>
+          <p> Account Nº 10</p>           
+         
+        </td>      
+      </tr>      
+    
+      
+      
+
+
+      
+
+    </tbody>
+
+  </table>
+  
+   
+  
+  <table class="table invoice-body">
+    <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Tax</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">Alquiler de {{monthNow}} de {{yearNow}}</td>
+        <td>${{amount}}</td>
+        <td>0.00</td>
+        <td class="text-end">${{amount}}</td>
+      </tr>
+      <tr >
+        <td scope="row">{{retroactive_line}}</td>
+        <td>{{amountRetro}}</td>
+        <td>{{tax_retro}}</td>
+        <td class="text-end">{{amountRetro}}</td>
+      </tr>
+
+      
+      <tr>                
+        <td colspan="3" class="text-end">SUB-TOTAL</td>
+        <td class="text-end"> ${{ammountSubTotal}} </td>
+      </tr>
+      <tr>                
+        <td colspan="3" class="text-end">TAX</td>
+        <td class="text-end"> 0.00</td>
+      </tr>
+      <tr>                
+        <td colspan="3" class="text-end">PAYMENT(S) APPLIED</td>
+        <td class="text-end"> 0.00</td>
+      </tr>
+      <tr>                
+        <td colspan="3" class="text-end"><strong>TOTAL</strong></td>
+        <td class="text-end"> <strong id="grand-total"> ${{ammountTotal}} </strong></td>
+      </tr>
+    </tbody>
+  </table>
+      
+      <p>Payment due: {{dayMonth}}</p>
+      <p>{{retroactive_number_line}}</p>
+   
+
+    
+
+
+
+</body>
+</html>
